@@ -92,6 +92,43 @@
 
             assert(isPrime(5), "5 is Prime!");
             assert(isPrime.answers[5], "The answer was cached!");
+            
+
+            //Example 4. Function declarations
+
+            function samurai() {
+                return "samurai here";
+            }
+
+            function ninja() {
+
+                function hiddenNinja() {
+                    return "ninja here";
+                }
+                return hiddenNinja();
+            }
+
+            //Example 5. arrow_function and functional expressions
+            assert(true, "Example 5. arrow_function and functional expressions");
+
+            var greet = name => "Greetings " + name;
+            assert(greet("Oishi") === "Greeting Oishi", "Oishi is property greeted");
+
+            var anotherGreet = function(name) {
+                return "Greetings " + name;
+            };
+            assert(anotherGreet("Oishi") === "Greetings Oishi", "Again, Oishi i property greeted");
+
+
+            //Example 6. Applying the remaining parameters
+            assert(true, "Example 6. Applying the remaining parameters");
+
+            function multiMax(first, ...remainingNumbers) {
+                var sorted = remainingNumbers.sort((a,b) => {return a - b;});
+                return first * sorted[0];
+            }
+
+            assert(multiMax(3, 1, 2, 3) === 9, "3*3=9 (First arg, by largest.)");
         }
     </script>
 </head>

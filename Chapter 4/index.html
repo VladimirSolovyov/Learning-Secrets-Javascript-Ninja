@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4</title>
+    <style>
+        .info {
+            padding: 10px;
+            height: 100px;
+        }
+
+        .block {
+            padding: 10px;
+            width: 100px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            float: left;
+            margin: 5px;
+        }
+
+        .block_succes {
+            background-color: chartreuse;
+        }
+
+        .block_fail {
+            background-color: crimson;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 4px;
+        }
+
+        .pass {
+            color: chartreuse;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .fail {
+            font-weight: bold;
+            color: crimson;
+        }
+    </style>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+
+            if (desc.indexOf("Example") !== -1)
+                li.style.color = "#ff0000";
+        }
+
+        //Применение параметров arguments
+
+        function whatever(a, b, c) {
+
+            assert(a === 1, 'The value of a is 1');
+            assert(b === 2, 'The value of b is 2');
+            assert(c === 3, 'The value of c is 3');
+
+            assert(arguments.length === 5, 'We\'ve passed in 5 parameters');
+            assert(arguments[0] === a, 'The first argument is assigned to a');
+            assert(arguments[1] === b, 'The second argument is assigned to b');
+            assert(arguments[2] === c, 'The third argument is assigned to c');
+
+            assert(arguments[3] === 4, 'We can access the fourth argument');
+            assert(arguments[4] === 5, 'We can access the fifth argument');
+        }
+
+        //Функция вычесляющая сумму произвольного кол-ва аргументов
+        function sum() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+
+        window.onload = function () {
+            whatever(1, 2, 3, 4, 5);
+            assert(sum(1, 2, 3) === 6, "We can add three numbers");
+            assert(sum(1, 2, 3, 4, 5) === 11, "We can add five numbers");
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="info">
+        <h3>Colors for testing</h3>
+        <div class="block block_succes">succes</div>
+        <div class="block block_fail">fail</div>
+    </div>
+    <ul id="results"></ul>
+</body>
+
+</html>

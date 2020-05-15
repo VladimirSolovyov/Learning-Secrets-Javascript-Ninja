@@ -85,7 +85,26 @@
             whatever(1, 2, 3, 4, 5);
             assert(sum(1, 2, 3) === 6, "We can add three numbers");
             assert(sum(1, 2, 3, 4, 5) === 11, "We can add five numbers");
+            forEach(weapons, function(index){
+            assert(this === weapons[index], "Got the expected value of " + weapons[index].type);
+        });
         }
+
+        //Create function forEach()  с целью продемонстрировать установку контекста ф-ции
+
+        function forEach(list, callback) {
+            for (var n = 0; n < list.length; n++) {
+                callback.call(list[n], n);
+            }
+        };
+
+        var weapons = [
+            { type: 'shuriken' },
+            { type: 'katana' },
+            { type: 'nunchucks'}
+        ];
+
+        
 
     </script>
 </head>

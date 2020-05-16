@@ -103,8 +103,42 @@
             { type: 'katana' },
             { type: 'nunchucks'}
         ];
+        //homework 
+        //Ex.1
+        function sumInRest(...theArgs){
+            var sum = 0;
+            for(var i = 0; i < theArgs.length; i++)
+                sum += theArgs[i];
 
-        
+            return sum;
+        }
+
+        console.log(sumInRest(1,2,3,4,5));
+        console.log(sumInRest(5,5,5,5,5));
+
+        //Ex.2
+        //Toyotomi
+        //Fuma
+
+        //Ex.3
+        //false(undefined)
+        //true
+
+        //Ex.4
+        //true
+        //false
+        //false
+        //true
+
+        //Ex.5
+        //true
+        //false
+
+        //Ex.6
+        //true
+        //false
+
+        // 6/6 Good!
 
     </script>
 </head>
@@ -116,6 +150,23 @@
         <div class="block block_fail">fail</div>
     </div>
     <ul id="results"></ul>
+    <button id="test">Clec Me!</button>
+    <script>
+        function Button() {
+            this.clicked = false;
+            //if function (*)
+            this.click = () => {
+                this.clicked = true;
+                assert(button.clicked, "The button has been clicked");
+            };
+        }
+
+        var button = new Button();
+        var elem = document.getElementById("test");
+        //using with function "bind" (*)
+        //elem.addEventListener("click",button.click.bind(button));
+        elem.addEventListener("click",button.click);
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5| closure and scope</title>
+    <style>
+        .info {
+            padding: 10px;
+            height: 100px;
+        }
+
+        .block {
+            padding: 10px;
+            width: 100px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+            float: left;
+            margin: 5px;
+        }
+
+        .block_succes {
+            background-color: chartreuse;
+        }
+
+        .block_fail {
+            background-color: crimson;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 4px;
+        }
+
+        .pass {
+            color: chartreuse;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        .fail {
+            font-weight: bold;
+            color: crimson;
+        }
+    </style>
+    <script>
+        function assert(value, desc) {
+            var li = document.createElement("li");
+            li.className = value ? "pass" : "fail";
+            li.appendChild(document.createTextNode(desc));
+            document.getElementById("results").appendChild(li);
+
+            if (desc.indexOf("Example") !== -1)
+                li.style.color = "#ff0000";
+        }
+        
+        window.onload = function () {
+        };
+
+    </script>
+</head>
+<body>
+    <div class="info">
+        <h3>Colors for testing</h3>
+        <div class="block block_succes">succes</div>
+        <div class="block block_fail">fail</div>
+    </div>
+    <ul id="results"></ul>
+</body>
+</html>

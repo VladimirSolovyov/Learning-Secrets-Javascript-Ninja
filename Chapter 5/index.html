@@ -53,8 +53,22 @@
             if (desc.indexOf("Example") !== -1)
                 li.style.color = "#ff0000";
         }
-        
+
+    var outerValue = "samurai";
+    var later;
+    function outerFunction() {
+        var innerValue = "ninja";
+        function innerFunction(){
+            assert(outerValue === "samurai", "I can see the samurai.");
+            assert(innerValue === "ninja", "I can see the ninja.");
+        }
+
+        later = innerFunction;        
+    }
+
         window.onload = function () {
+            outerFunction();
+            later();
         };
 
     </script>
